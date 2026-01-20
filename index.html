@@ -76,14 +76,16 @@
     }
 
     .topbar{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 22px;
-      display:flex;
-      gap:14px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:18px 22px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;   /* <-- CLAVE: evita que baje */
+}
+
     }
 
     .brandbox{
@@ -118,13 +120,13 @@
     }
 
     nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .pill{
+  margin-left:auto;  /* <-- empuja a la derecha */
+  display:flex;
+  gap:10px;
+  flex-wrap:nowrap;  /* <-- evita que se parta */
+  align-items:center;
+}
+      .pill{
       padding:10px 12px;
       border:1px solid rgba(255,255,255,.12);
       border-radius:999px;
