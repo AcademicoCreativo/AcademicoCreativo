@@ -75,25 +75,27 @@
 }
     }
 
-    .topbar{
+   .topbar{
   max-width:var(--max);
   margin:0 auto;
   padding:18px 22px;
   display:flex;
-  gap:14px;
   align-items:center;
   justify-content:space-between;
-  flex-wrap:nowrap;   /* <-- CLAVE: evita que baje */
+  gap:18px;
+  flex-wrap:nowrap;      /* NO baja a otra línea */
 }
-
     }
-
-    .brandbox{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 260px;
-    }
+.brandbox{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex: 0 1 520px;      /* limita cuánto ocupa a la izquierda */
+  min-width: 280px;
+  }
+    .brandtext{
+  max-width: 360px;
+}
 
     /* LOGO (para que no se corte) */
 .brand-logo{
@@ -108,24 +110,27 @@
 
     }
 
-    .brandtext h1{
-      margin:0;
-      font-size:16px;
-      letter-spacing:.2px;
-    }
-    .brandtext p{
-      margin:0;
-      font-size:12px;
-      color:var(--muted);
-    }
+   .brandtext h1{
+  margin:0;
+  font-size:32px;   /* antes estaba muy grande */
+  line-height:1;
+  letter-spacing:.2px;
+}
 
-    nav{
-  margin-left:auto;  /* <-- empuja a la derecha */
+    .brandtext p{
+  margin:6px 0 0;
+  font-size:13px;
+}
+
+   nav{
+  margin-left:auto;          /* empuja a la derecha */
   display:flex;
   gap:10px;
-  flex-wrap:nowrap;  /* <-- evita que se parta */
   align-items:center;
+  justify-content:flex-end;  /* se pega a la derecha */
+  flex-wrap:nowrap;          /* no baja */
 }
+
       .pill{
       padding:10px 12px;
       border:1px solid rgba(255,255,255,.12);
