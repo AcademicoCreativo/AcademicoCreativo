@@ -71,13 +71,14 @@
     }
 
     /* LOGO (para que no se corte) */
-    .brandbox img{
-      height:44px;
-      width:auto;
-      max-width:160px;
-      object-fit:contain;
-      border-radius:10px;
-      background:transparent;
+    .brand-logo{
+     height:64px;        /* MÁS GRANDE */
+    width:auto;
+    max-width:220px;
+    object-fit:contain;
+    display:block;
+}
+
     }
 
     .brandtext h1{
@@ -367,7 +368,7 @@
     <div class="topbar">
       <div class="brandbox">
         <!-- Asegúrate que exista logo.png en el repo -->
-        <img src="logo.png" alt="Académico Creativo" />
+        <img src="./logo.png?v=2" alt="Académico Creativo" class="brand-logo" />
         <div class="brandtext">
           <h1>Académico Creativo</h1>
           <p>Guías y cursos prácticos para aprender y aplicar</p>
@@ -456,7 +457,7 @@
 
           <div class="service-right">
             <button class="buy" onclick="openLink('https://pay.hotmart.com/M103963914V')">🔒 Comprar ahora</button>
-            <button class="ghost" onclick="scrollToSection('faq')">Ver FAQ</button>
+            <button class="ghost" onclick="openLink('https://hotmart.com/es/marketplace/productos/guia-de-sintomas-de-alerta-del-higado/M103963914V?sck=HOTMART_SITE&search=80b00039-fee7-4fa2-84fc-2cbb640181d7&hotfeature=33')">Detalle</button>
             <div class="small" style="margin-top:10px;">
               Serás redirigido al checkout seguro de Hotmart.
             </div>
