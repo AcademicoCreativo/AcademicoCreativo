@@ -2,209 +2,546 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Académico Creativo | Guías y Cursos</title>
-  <meta name="description" content="Guías prácticas y cursos digitales para aprender y aplicar de inmediato." />
+  <meta name="description" content="Guías prácticas y cursos digitales. Compra segura en Hotmart." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Académico Creativo | Guías y Cursos" />
-  <meta property="og:description" content="Accede a guías prácticas y cursos digitales con compra segura en Hotmart." />
+  <meta property="og:description" content="Guías prácticas y cursos digitales con compra segura en Hotmart." />
   <meta property="og:type" content="website" />
 
   <style>
+    :root{
+      --bg:#0b1020;
+      --panel:rgba(255,255,255,.05);
+      --panel2:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --brand:#7c3aed;
+      --accent:#22c55e;
+      --radius:20px;
+      --max:1100px;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+    }
+
+    html{ scroll-behavior:smooth; }
+    *{ box-sizing:border-box; }
+
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:#0b1020;
-      color:#fff;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1100px 650px at 20% -10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(34,197,94,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
     }
-    a{color:inherit;text-decoration:none}
+
+    a{ color:inherit; text-decoration:none; }
+
     header{
-      padding:16px 24px;
-      background:#0b1020;
-      border-bottom:1px solid rgba(255,255,255,.1);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.78), rgba(11,16,32,.45));
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .top{
-      max-width:1100px;
-      margin:auto;
+
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 22px;
       display:flex;
+      gap:14px;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
       flex-wrap:wrap;
     }
-    .brand{
+
+    .brandbox{
       display:flex;
       align-items:center;
       gap:12px;
+      min-width: 260px;
     }
-    .brand img{
-  width:48px;
-  height:auto;
-  max-height:48px;
-  border-radius:10px;
-  background:transparent;
-  padding:0;
-  object-fit:contain;
-}
 
+    /* LOGO (para que no se corte) */
+    .brandbox img{
+      height:44px;
+      width:auto;
+      max-width:160px;
+      object-fit:contain;
+      border-radius:10px;
+      background:transparent;
     }
-    .brand h1{
+
+    .brandtext h1{
       margin:0;
-      font-size:18px;
+      font-size:16px;
+      letter-spacing:.2px;
     }
-    .brand p{
+    .brandtext p{
       margin:0;
-      font-size:13px;
-      opacity:.8;
+      font-size:12px;
+      color:var(--muted);
     }
+
     nav{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      align-items:center;
     }
+
     .pill{
-      padding:8px 14px;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.12);
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.04);
       font-size:13px;
     }
-    main{
-      max-width:1100px;
-      margin:auto;
-      padding:40px 24px;
-    }
-    .hero{
-      margin-bottom:40px;
-    }
-    .hero h2{
-      font-size:34px;
-      margin-bottom:10px;
-    }
-    .hero p{
-      opacity:.85;
-      max-width:600px;
-    }
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-    }
-    .card{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      padding:20px;
-    }
-    .tag{
-      font-size:12px;
-      background:#22c55e;
-      color:#000;
-      padding:4px 10px;
+    .pill:hover{ background: rgba(255,255,255,.08); }
+
+    .cta{
+      padding:10px 14px;
       border-radius:999px;
-      display:inline-block;
-      margin-bottom:10px;
-      font-weight:600;
-    }
-    .card h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-    .card p{
-      font-size:14px;
-      opacity:.85;
-    }
-    ul{
-      padding-left:18px;
-      font-size:14px;
-    }
-    button{
-      margin-top:14px;
-      width:100%;
-      padding:12px;
-      border-radius:12px;
-      border:none;
-      background:#7c3aed;
-      color:#fff;
-      font-weight:700;
-      font-size:15px;
+      background: linear-gradient(135deg, var(--brand), #0ea5e9);
+      border:0;
+      font-weight:800;
+      color:white;
       cursor:pointer;
+      box-shadow: 0 18px 40px rgba(124,58,237,.22);
     }
-    button:hover{
-      opacity:.9;
+    .cta:hover{ filter:brightness(1.05); }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 22px 50px;
     }
-    footer{
-      margin-top:60px;
-      padding-top:20px;
-      border-top:1px solid rgba(255,255,255,.1);
+
+    /* Secciones separadas (estilo servicios) */
+    section{ margin-bottom:80px; }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:10px;
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns:1fr; }
+      .brandbox{ min-width:auto; }
+    }
+
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:24px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.22);
       font-size:12px;
-      opacity:.7;
+      margin-bottom:14px;
+    }
+
+    .hero h2{
+      margin:0 0 12px;
+      font-size:42px;
+      line-height:1.10;
+      letter-spacing:.2px;
+    }
+
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width: 60ch;
+    }
+
+    .row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 16px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-weight:800;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ background: rgba(255,255,255,.10); }
+
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, var(--brand), #0ea5e9);
+      box-shadow: 0 18px 40px rgba(124,58,237,.22);
+      color:white;
+    }
+
+    .note{
+      margin-top:16px;
+      font-size:12px;
+      color:var(--muted);
+      border-left: 3px solid rgba(34,197,94,.45);
+      padding-left:10px;
+    }
+
+    .mini-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .mini{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background: var(--accent);
+      margin-top:4px;
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+      flex:0 0 auto;
+    }
+    .mini strong{ display:block; margin-bottom:3px; }
+    .small{ font-size:12px; color:var(--muted); }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+
+    /* Productos estilo servicios */
+    .services{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+
+    .service-card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      padding:26px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(34,197,94,.14);
+      border:1px solid rgba(34,197,94,.22);
+      font-size:12px;
+      margin-bottom:10px;
+      font-weight:800;
+    }
+
+    .service-left{
+      flex: 1 1 520px;
+      min-width: 260px;
+    }
+
+    .service-left h3{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .service-left p{
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:14px;
+      max-width: 70ch;
+    }
+
+    .features{
+      margin:0;
+      padding-left:18px;
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+    }
+    .features li{ margin:6px 0; }
+
+    .service-right{
+      flex: 0 0 280px;
+      min-width: 260px;
+    }
+
+    .buy{
+      width:100%;
+      padding:16px 16px;
+      border-radius: 14px;
+      border:0;
+      cursor:pointer;
+      font-weight:900;
+      font-size:16px;
+      color:white;
+      background: linear-gradient(135deg, var(--brand), #0ea5e9);
+      box-shadow: 0 18px 40px rgba(124,58,237,.22);
+    }
+    .buy:hover{ filter:brightness(1.05); }
+
+    .ghost{
+      width:100%;
+      padding:12px 16px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+      font-weight:800;
+      color:var(--text);
+      margin-top:10px;
+    }
+    .ghost:hover{ background: rgba(255,255,255,.10); }
+
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding:14px 16px;
+      margin:12px 0;
+    }
+    summary{ cursor:pointer; font-weight:900; }
+
+    footer{
+      margin-top:40px;
+      color:var(--muted);
+      font-size:12px;
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
       gap:10px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:16px;
+    }
+
+    .link{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      color: rgba(255,255,255,.90);
     }
   </style>
 </head>
 
 <body>
-
-<header>
-  <div class="top">
-    <div class="brand">
-      <img src="logo.png" alt="Académico Creativo">
-      <div>
-        <h1>Académico Creativo</h1>
-        <p>Guías y cursos prácticos para aprender y aplicar</p>
-      </div>
-    </div>
-
-    <nav>
-      <a class="pill" href="#productos">Productos</a>
-      <a class="pill" href="https://www.instagram.com/academico_creativo/" target="_blank">Instagram</a>
-      <a class="pill" href="https://www.facebook.com/profile.php?id=61586754154746" target="_blank">Facebook</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <section class="hero">
-    <h2>Aprende hoy. Aplícalo de inmediato.</h2>
-    <p>
-      Aquí encuentras guías digitales claras y prácticas.
-      Al hacer clic en comprar, serás redirigido al checkout
-      seguro de Hotmart.
-    </p>
-  </section>
-
-  <section id="productos">
-    <div class="products">
-
-      <div class="card">
-        <span class="tag">Salud</span>
-        <h3>Guía de síntomas de alerta del hígado</h3>
-        <p>Identifica señales tempranas y protege tu salud hepática.</p>
-        <ul>
-          <li>Síntomas explicados de forma clara</li>
-          <li>Guía práctica y fácil de entender</li>
-          <li>Consejos de prevención</li>
-        </ul>
-        <button onclick="window.open('https://pay.hotmart.com/M103963914V','_blank')">
-          🔒 Comprar ahora
-        </button>
+  <header>
+    <div class="topbar">
+      <div class="brandbox">
+        <!-- Asegúrate que exista logo.png en el repo -->
+        <img src="logo.png" alt="Académico Creativo" />
+        <div class="brandtext">
+          <h1>Académico Creativo</h1>
+          <p>Guías y cursos prácticos para aprender y aplicar</p>
+        </div>
       </div>
 
+      <nav>
+        <!-- Esto baja dentro de la misma página -->
+        <a class="pill" href="#productos">Productos</a>
+        <a class="pill" href="#faq">FAQ</a>
+        <a class="pill" href="#contacto">Contacto</a>
+        <a class="pill" href="https://www.instagram.com/academico_creativo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="pill" href="https://www.facebook.com/profile.php?id=61586754154746" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <button class="cta" id="btnTop">Ver productos</button>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <footer>
-    <div>© 2026 Académico Creativo</div>
-    <div>Compra segura procesada por Hotmart</div>
-  </footer>
+  <main class="wrap">
 
-</main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="panel">
+        <div class="kicker">✅ Compra segura en Hotmart · 🔒 Checkout oficial</div>
+        <h2>Aprende hoy. Aplícalo de inmediato.</h2>
+        <p>
+          Aquí encuentras guías digitales claras y prácticas. Al hacer clic en comprar,
+          serás redirigido al checkout seguro de Hotmart.
+        </p>
 
+        <div class="row">
+          <a class="btn primary" href="#productos">Ver productos</a>
+          <a class="btn" href="https://www.instagram.com/academico_creativo/" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+        </div>
+
+        <div class="note">
+          <strong>Nota:</strong> esta página es una vitrina. La compra se realiza en Hotmart.
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="section-title">¿Qué encontrarás aquí?</div>
+        <div class="mini-list">
+          <div class="mini">
+            <div class="dot"></div>
+            <div>
+              <strong>Guías prácticas</strong>
+              <div class="small">Contenido claro y directo para pasar a la acción.</div>
+            </div>
+          </div>
+          <div class="mini">
+            <div class="dot"></div>
+            <div>
+              <strong>Acceso inmediato</strong>
+              <div class="small">Compra y empieza a usar el material al instante.</div>
+            </div>
+          </div>
+          <div class="mini">
+            <div class="dot"></div>
+            <div>
+              <strong>Compra segura</strong>
+              <div class="small">Pago procesado por el checkout de Hotmart.</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos">
+      <h3 class="section-title">Productos</h3>
+
+      <div class="services">
+        <!-- Producto 1 -->
+        <div class="service-card">
+          <div class="service-left">
+            <div class="badge">Salud</div>
+            <h3>Guía de síntomas de alerta del hígado</h3>
+            <p>Identifica señales tempranas y protege tu salud hepática con una guía clara y práctica.</p>
+            <ul class="features">
+              <li>Síntomas explicados de forma clara</li>
+              <li>Guía práctica y fácil de entender</li>
+              <li>Consejos de prevención</li>
+            </ul>
+          </div>
+
+          <div class="service-right">
+            <button class="buy" onclick="openLink('https://pay.hotmart.com/M103963914V')">🔒 Comprar ahora</button>
+            <button class="ghost" onclick="scrollToSection('faq')">Ver FAQ</button>
+            <div class="small" style="margin-top:10px;">
+              Serás redirigido al checkout seguro de Hotmart.
+            </div>
+          </div>
+        </div>
+
+        <!-- (Opcional) Copia y pega este bloque para más productos -->
+        <!--
+        <div class="service-card">
+          <div class="service-left">
+            <div class="badge">Categoría</div>
+            <h3>Nombre del producto</h3>
+            <p>Descripción breve del producto.</p>
+            <ul class="features">
+              <li>Beneficio 1</li>
+              <li>Beneficio 2</li>
+              <li>Beneficio 3</li>
+            </ul>
+          </div>
+
+          <div class="service-right">
+            <button class="buy" onclick="openLink('https://pay.hotmart.com/TU_CODIGO')">🔒 Comprar ahora</button>
+            <button class="ghost" onclick="scrollToSection('contacto')">Contactar</button>
+            <div class="small" style="margin-top:10px;">Checkout seguro Hotmart.</div>
+          </div>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h3 class="section-title">Preguntas frecuentes</h3>
+
+      <details>
+        <summary>¿El pago se hace en esta página?</summary>
+        <div class="small" style="margin-top:10px;">
+          No. Esta página es una vitrina. El pago se realiza en el checkout seguro de Hotmart.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa cuando doy clic en “Comprar”?</summary>
+        <div class="small" style="margin-top:10px;">
+          Se abre el checkout oficial de Hotmart en una pestaña nueva para completar la compra.
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Puedo contactarte si tengo dudas?</summary>
+        <div class="small" style="margin-top:10px;">
+          Sí. Baja a la sección “Contacto” y escríbeme por Instagram o Facebook.
+        </div>
+      </details>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h3 class="section-title">Contacto</h3>
+      <div class="panel">
+        <div class="small" style="line-height:1.8;">
+          Instagram: <a class="link" href="https://www.instagram.com/academico_creativo/" target="_blank" rel="noopener noreferrer">@academico_creativo</a><br/>
+          Facebook: <a class="link" href="https://www.facebook.com/profile.php?id=61586754154746" target="_blank" rel="noopener noreferrer">Perfil Facebook</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Académico Creativo</div>
+      <div>Compra segura procesada por Hotmart</div>
+    </footer>
+  </main>
+
+  <script>
+    function openLink(url){
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:"smooth"});
+    }
+
+    document.getElementById("btnTop").onclick = () => scrollToSection("productos");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
